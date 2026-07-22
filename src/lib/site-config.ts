@@ -6,15 +6,14 @@ export const siteConfig = {
   description:
     "Websites that turn visitors into customers. WordPress sites built around the problem your business actually has.",
 
-  // TODO(domain): placeholder until the real domain is registered/decided.
   // Every absolute URL in the app (metadataBase, canonical, OG/Twitter
   // image URLs, sitemap <loc>, robots sitemap ref, JSON-LD @id/url fields)
-  // derives from this single constant — update only here when the domain
-  // is finalized.
-  siteUrl: "https://areebusman.dev",
+  // derives from this single constant — update only here if the domain
+  // changes.
+  siteUrl: "https://areeb-landing-wp.vercel.app",
 
   ctaLabel: "Message me on WhatsApp",
-  ctaHref: "https://wa.me/92360242596",
+  ctaHref: "https://wa.me/923260242596",
   contactEmail: "areebusman27@gmail.com",
 
   keywords: [
