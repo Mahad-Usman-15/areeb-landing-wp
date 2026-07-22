@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Areeb Usman
 
-## Getting Started
+Hi, I'm Areeb Usman — a WordPress developer who builds sites for small businesses that need to look credible and convert visitors, not agencies with a design portfolio to fill.
 
-First, run the development server:
+I work directly with you, no account managers or middlemen. I build specifically on WordPress so you're never locked into me: once it's live, the site is yours to edit, and I'll show you how.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## What I do
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Custom WordPress websites built from scratch around your business and what it actually needs — not a generic theme
+- WooCommerce stores that make it easy for customers to find a product and buy it, no confusion
+- High-converting landing pages for ads, promotions, or a specific offer you're running
+- Website redesigns that fix a slow, outdated, or hard-to-manage site without starting from zero
+- Speed and mobile optimization so your site loads fast and works on a phone, where most visitors are
+- Ongoing care and maintenance — updates, backups, and small fixes so the site keeps working after launch
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+15+ live sites shipped for real businesses, fixed pricing agreed in writing before any work starts, and a 24-hour response time guaranteed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Get in touch
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- WhatsApp: [Message me](https://wa.me/92360242596)
+- Email: areebusman27@gmail.com
