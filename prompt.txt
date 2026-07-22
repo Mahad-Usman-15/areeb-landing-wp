@@ -1,0 +1,19 @@
+
+
+Create a tesimonials carousel.
+Testimonials
+1. Mbs Editzs: Huge thanks to Areeb Usman for the amazing work on my website.I truly appreciete your proffesionalism,dedication and attention to detail.
+It was pleasure working with both of you
+add more testimonials related to my projects.
+
+info
+contactnumber:placeholder
+gmailaddress:areebusman27@gmail.com
+facebook:
+
+
+Replace the button with message me on facebook with Message me on whatsapp
+
+
+
+

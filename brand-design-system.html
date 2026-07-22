@@ -1,0 +1,344 @@
+<title>Open for Business — Brand Design System</title>
+<style>
+  :root{
+    --bg:#F6F7FA;
+    --surface:#FFFFFF;
+    --surface-2:#EEF0F4;
+    --text:#0B1120;
+    --text-muted:#545B68;
+    --hairline:#E2E4E9;
+    --signal:#E5590E;
+    --signal-deep:#B8430A;
+    --signal-tint:#FFE3D1;
+    --moss:#1F8A70;
+    --moss-tint:#DCF3EC;
+    --on-signal:#201007;
+    --shadow: 0 1px 2px rgba(11,17,32,0.04), 0 8px 24px rgba(11,17,32,0.06);
+
+    --font-display: "Archivo Black","Arial Black","Segoe UI",sans-serif;
+    --font-body: "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    --font-mono: "Consolas","SF Mono","Cascadia Mono",ui-monospace,monospace;
+
+    --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px;
+    --r-sm:12px; --r-md:20px; --r-pill:999px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0B1120; --surface:#121826; --surface-2:#171F30;
+      --text:#F3F4F7; --text-muted:#9AA3B2; --hairline:#232B3D;
+      --signal:#FF7A3D; --signal-deep:#FFB27A; --signal-tint:#3A2418;
+      --moss:#35C29B; --moss-tint:#113A30;
+      --shadow: 0 1px 0 rgba(255,255,255,0.02);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B1120; --surface:#121826; --surface-2:#171F30;
+    --text:#F3F4F7; --text-muted:#9AA3B2; --hairline:#232B3D;
+    --signal:#FF7A3D; --signal-deep:#FFB27A; --signal-tint:#3A2418;
+    --moss:#35C29B; --moss-tint:#113A30;
+    --shadow: 0 1px 0 rgba(255,255,255,0.02);
+  }
+  :root[data-theme="light"]{
+    --bg:#F6F7FA; --surface:#FFFFFF; --surface-2:#EEF0F4;
+    --text:#0B1120; --text-muted:#545B68; --hairline:#E2E4E9;
+    --signal:#E5590E; --signal-deep:#B8430A; --signal-tint:#FFE3D1;
+    --moss:#1F8A70; --moss-tint:#DCF3EC;
+    --shadow: 0 1px 2px rgba(11,17,32,0.04), 0 8px 24px rgba(11,17,32,0.06);
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; }
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:var(--font-body);
+    font-size:17px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--signal-tint); color:var(--text); }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:var(--sp-8) var(--sp-5) var(--sp-9); }
+  @media (max-width:640px){ .wrap{ padding:var(--sp-6) var(--sp-4) var(--sp-8); } }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:var(--sp-2);
+    font-family:var(--font-mono); font-size:12px; font-weight:700;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--signal-deep);
+  }
+  .eyebrow::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--signal); }
+
+  h1,h2,h3{ font-family:var(--font-display); text-wrap:balance; margin:0; letter-spacing:-0.01em; }
+  h1{ font-size:clamp(34px,5.5vw,54px); line-height:1.05; margin-top:var(--sp-3); }
+  h2{ font-size:26px; line-height:1.15; }
+  h3{ font-size:17px; line-height:1.3; }
+
+  p{ margin:0; }
+  .lede{ font-size:18px; color:var(--text-muted); max-width:60ch; margin-top:var(--sp-4); }
+
+  section{ margin-top:var(--sp-9); }
+  section:first-of-type{ margin-top:0; }
+  .section-head{ display:flex; flex-direction:column; gap:var(--sp-2); margin-bottom:var(--sp-6); }
+  .section-num{ font-family:var(--font-mono); font-size:13px; color:var(--text-muted); }
+
+  hr{ border:none; border-top:1px solid var(--hairline); margin:var(--sp-8) 0; }
+
+  /* color swatches */
+  .swatches{ display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:var(--sp-4); }
+  .swatch{ border:1px solid var(--hairline); border-radius:var(--r-md); overflow:hidden; background:var(--surface); }
+  .swatch-fill{ height:88px; }
+  .swatch-meta{ padding:var(--sp-3) var(--sp-4) var(--sp-4); }
+  .swatch-name{ font-weight:700; font-size:14px; }
+  .swatch-hex{ font-family:var(--font-mono); font-size:13px; color:var(--text-muted); margin-top:2px; }
+  .swatch-use{ font-size:13px; color:var(--text-muted); margin-top:var(--sp-2); line-height:1.45; }
+
+  /* type specimen */
+  .specimen{ border-top:1px solid var(--hairline); padding:var(--sp-5) 0; display:grid; grid-template-columns:120px 1fr; gap:var(--sp-5); align-items:baseline; }
+  .specimen:last-child{ border-bottom:1px solid var(--hairline); }
+  .specimen-label{ font-family:var(--font-mono); font-size:12px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; }
+  @media (max-width:560px){ .specimen{ grid-template-columns:1fr; gap:var(--sp-1); } }
+
+  /* buttons */
+  .row{ display:flex; gap:var(--sp-4); flex-wrap:wrap; align-items:center; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    font-family:var(--font-body); font-weight:700; font-size:15px;
+    padding:14px 28px; border-radius:var(--r-pill);
+    border:1.5px solid transparent; cursor:pointer;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+    text-decoration:none;
+  }
+  @media (prefers-reduced-motion:reduce){ .btn{ transition:none; } }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn:focus-visible{ outline:2px solid var(--signal); outline-offset:2px; }
+  .btn-primary{ background:var(--signal); color:var(--on-signal); }
+  .btn-primary:hover{ box-shadow:0 6px 18px rgba(229,89,14,0.35); }
+  .btn-secondary{ background:transparent; color:var(--text); border-color:var(--hairline); }
+  .btn-secondary:hover{ border-color:var(--text-muted); }
+
+  .tag{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:var(--font-mono); font-size:12px; font-weight:700;
+    padding:6px 12px; border-radius:var(--r-pill);
+    background:var(--moss-tint); color:var(--moss);
+  }
+
+  /* stat block */
+  .stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:var(--sp-6); }
+  .stat-num{ font-family:var(--font-mono); font-weight:700; font-size:40px; color:var(--signal); font-variant-numeric:tabular-nums; line-height:1; }
+  .stat-label{ font-size:13px; color:var(--text-muted); margin-top:var(--sp-2); }
+
+  /* case study card */
+  .card{
+    background:var(--surface); border:1px solid var(--hairline); border-radius:var(--r-md);
+    padding:var(--sp-6); box-shadow:var(--shadow);
+  }
+  .card-row{ display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-6); margin-top:var(--sp-5); }
+  @media (max-width:560px){ .card-row{ grid-template-columns:1fr; } }
+  .card-field-label{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:6px; }
+  .card-field-value{ font-size:15px; }
+
+  /* composed hero mockup */
+  .mockup{
+    background:#0B1120; color:#F3F4F7; border-radius:var(--r-md);
+    padding:var(--sp-8) var(--sp-6); position:relative; overflow:hidden;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 40px);
+  }
+  .mockup .eyebrow{ color:#FFB27A; }
+  .mockup .eyebrow::before{ background:#FF7A3D; }
+  .mockup h1{ color:#F3F4F7; max-width:16ch; }
+  .mockup .lede{ color:#9AA3B2; }
+  .mockup .btn-primary{ background:#FF7A3D; color:#201007; }
+  .mockup .stats{ margin-top:var(--sp-7); padding-top:var(--sp-6); border-top:1px solid rgba(255,255,255,0.1); }
+  .mockup .stat-num{ color:#FF7A3D; }
+  .mockup .stat-label{ color:#9AA3B2; }
+  .mockup .btn-row{ margin-top:var(--sp-6); }
+
+  /* token table */
+  .tokens{ width:100%; border-collapse:collapse; font-size:14px; }
+  .tokens th{ text-align:left; font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); font-weight:600; padding:var(--sp-2) var(--sp-3); border-bottom:1px solid var(--hairline); }
+  .tokens td{ padding:var(--sp-3); border-bottom:1px solid var(--hairline); font-family:var(--font-mono); }
+  .tokens-scroll{ overflow-x:auto; }
+
+  footer{ margin-top:var(--sp-9); padding-top:var(--sp-6); border-top:1px solid var(--hairline); color:var(--text-muted); font-size:14px; }
+</style>
+
+<div class="wrap">
+
+  <span class="eyebrow">Brand Design System</span>
+  <h1>Open for Business.</h1>
+  <p class="lede">A system for a WordPress developer's cold-outreach landing page — built to read as credible and direct to a small business owner scrolling Facebook, not as another enterprise dev shop. Informed by Digitorm, Devsinc, 10Pearls and Folio3 (dark hero, bold geometric type, one saturated accent, pill CTAs, stat bars) — filtered through a warmer, single-operator point of view instead of their corporate blue/teal palette.</p>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">01 — Color</span>
+      <h2>Ink, paper, and one signal color.</h2>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#0B1120;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Ink</div>
+          <div class="swatch-hex">#0B1120</div>
+          <div class="swatch-use">Hero grounds, primary text on light surfaces. Warmer than pure black.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#F6F7FA;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Paper</div>
+          <div class="swatch-hex">#F6F7FA</div>
+          <div class="swatch-use">Content section backgrounds. Cool-neutral, not cream — keeps amber the only warm note.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#E5590E;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Signal</div>
+          <div class="swatch-hex">#E5590E</div>
+          <div class="swatch-use">Primary CTA, stat numbers, emphasis. Trade/work-order orange — reads human, not corporate SaaS blue.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#B8430A;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Signal Deep</div>
+          <div class="swatch-hex">#B8430A</div>
+          <div class="swatch-use">Hover/active states, small accent text where Signal lacks contrast.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#1F8A70;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Moss</div>
+          <div class="swatch-hex">#1F8A70</div>
+          <div class="swatch-use">Used only for "result" tags on case studies — the one place a second hue is allowed.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#545B68;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Slate</div>
+          <div class="swatch-hex">#545B68</div>
+          <div class="swatch-use">Muted body copy, captions, secondary labels.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">02 — Type</span>
+      <h2>A blunt display face over a plain-spoken body face.</h2>
+      <p class="lede">Real build: <strong>Geist Sans</strong> for display/body and <strong>Geist Mono</strong> for numbers and labels — both ship natively with Next.js via <code>next/font</code>, zero config, zero webfont requests. This preview uses close system-font stands-ins since this page can't load external fonts.</p>
+    </div>
+
+    <div class="specimen">
+      <span class="specimen-label">Eyebrow</span>
+      <span class="eyebrow">WordPress Developer</span>
+    </div>
+    <div class="specimen">
+      <span class="specimen-label">H1 / 54px</span>
+      <h1 style="margin-top:0;">Websites that turn visitors into customers.</h1>
+    </div>
+    <div class="specimen">
+      <span class="specimen-label">H2 / 26px</span>
+      <h2>Every project below started as a business with a problem.</h2>
+    </div>
+    <div class="specimen">
+      <span class="specimen-label">Body / 17px</span>
+      <p>Fine Line Lawncare had no way for new customers to book a free estimate online — every lead came from word of mouth. I built a site that turns a Google search into a booking.</p>
+    </div>
+    <div class="specimen">
+      <span class="specimen-label">Mono / stat</span>
+      <span class="stat-num" style="font-size:32px;">9</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">03 — Components</span>
+      <h2>Pill buttons, mono stats, tagged results.</h2>
+    </div>
+
+    <div class="row">
+      <a class="btn btn-primary" href="#">Message me on Facebook</a>
+      <a class="btn btn-secondary" href="#">See the work</a>
+      <span class="tag">Estimate requests, day one</span>
+    </div>
+
+    <div class="stats" style="margin-top:var(--sp-7);">
+      <div>
+        <div class="stat-num">9</div>
+        <div class="stat-label">Sites shipped</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Mobile-first builds</div>
+      </div>
+      <div>
+        <div class="stat-num">&lt;2s</div>
+        <div class="stat-label">Target load time</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:var(--sp-7);">
+      <span class="eyebrow">Case Study</span>
+      <h3 style="margin-top:var(--sp-3); font-size:20px;">Fine Line Lawncare</h3>
+      <div class="card-row">
+        <div>
+          <div class="card-field-label">Problem</div>
+          <div class="card-field-value">Word-of-mouth only — no way to book a free estimate online.</div>
+        </div>
+        <div>
+          <div class="card-field-label">Built</div>
+          <div class="card-field-value">A booking-first site with an instant estimate CTA above the fold.</div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:var(--sp-5);">
+        <span class="tag">Result: estimate requests, day one</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">04 — Applied</span>
+      <h2>The system on an actual hero.</h2>
+    </div>
+    <div class="mockup">
+      <span class="eyebrow">WordPress Developer</span>
+      <h1>Websites that turn visitors into customers.</h1>
+      <p class="lede">Nine small businesses. Nine real problems — no bookings, no storefront, no way to look credible online. I build the WordPress site that fixes it.</p>
+      <div class="row btn-row">
+        <a class="btn btn-primary" href="#">Message me on Facebook</a>
+      </div>
+      <div class="stats">
+        <div><div class="stat-num">9</div><div class="stat-label">Sites shipped</div></div>
+        <div><div class="stat-num">100%</div><div class="stat-label">Mobile-first</div></div>
+        <div><div class="stat-num">&lt;2s</div><div class="stat-label">Load time</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">05 — Tokens</span>
+      <h2>Spacing &amp; radius, for engineering handoff.</h2>
+    </div>
+    <div class="tokens-scroll">
+      <table class="tokens">
+        <tr><th>Token</th><th>Value</th><th>Use</th></tr>
+        <tr><td>--sp-2 … --sp-9</td><td>8 / 16 / 24 / 32 / 48 / 64 / 96px</td><td>Vertical rhythm between sections and stacked elements</td></tr>
+        <tr><td>--r-pill</td><td>999px</td><td>Buttons, tags — the one recurring shape motif</td></tr>
+        <tr><td>--r-md</td><td>20px</td><td>Cards, mockup panels</td></tr>
+        <tr><td>--r-sm</td><td>12px</td><td>Small chips, inline swatches</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    Built for a landing page, not a brand book — every token here maps directly to a Tailwind config value or CSS variable in the Next.js build. Brand name intentionally absent: nothing above depends on it.
+  </footer>
+
+</div>
