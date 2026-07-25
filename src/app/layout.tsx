@@ -52,6 +52,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  verification: {
+    google: "aWQ8la7pt8eXEesBktFRU8zUZRiv-aPEDCjR6jipdPI",
+  },
 };
 
 export const viewport: Viewport = {
@@ -69,7 +72,6 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        
         {children}
         <WhatsAppBubble />
         <Analytics />
