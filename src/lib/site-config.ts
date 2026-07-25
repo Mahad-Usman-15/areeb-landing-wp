@@ -10,7 +10,7 @@ export const siteConfig = {
   // image URLs, sitemap <loc>, robots sitemap ref, JSON-LD @id/url fields)
   // derives from this single constant — update only here if the domain
   // changes.
-  siteUrl: "https://areeb-landing-wp.vercel.app",
+  siteUrl: "https://areebusman.vercel.app",
 
   ctaLabel: "Message me on WhatsApp",
   ctaHref: "https://wa.me/923260242596",
