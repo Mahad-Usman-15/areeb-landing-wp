@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
+import { siteConfig } from "@/lib/site-config";
+
+// Must be an address on a domain verified in Resend — the old
+// onboarding@resend.dev sandbox sender only delivers to the account owner.
+const FROM_EMAIL =
+  process.env.CONTACT_FROM_EMAIL || `${siteConfig.developerName} <contact@areebusman.dev>`;
+
 export async function POST(request: NextRequest) {
   const { name, email, phone, message } = await request.json();
 
@@ -24,8 +31,8 @@ export async function POST(request: NextRequest) {
 
   try {
     const { error } = await resend.emails.send({
-      from: "Landing Page <onboarding@resend.dev>",
-      to: "areebusman27@gmail.com",
+      from: FROM_EMAIL,
+      to: siteConfig.contactEmail,
       replyTo: email,
       subject: `New project inquiry from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "—"}\n\n${message}`,
